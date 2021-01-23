@@ -1,0 +1,31 @@
+###################
+#                 #
+#    CS622 HW7    #
+#   ZHUO ZHANG    #
+#                 #
+###################
+
+1. environment
+
+* java8 on archlinux with eclipse ide
+
+2. implementation
+
+* bruteforce uses Random to generat ints to get a random char from the given chars
+  then creates 100 random strings of size 10
+
+* concurrently the ConcurrentGenerator does the same thing but only creates 20 strings 
+  and a total of 5 threads are created to generator the total of 100 strings
+
+* to time more accurately I moved the start time for the concurrent method to below the
+  thread instanciation and above the run() methods are called
+
+3. result
+
+* the concurrent method doens't really improve performance too much in this case. Most
+  times the running times are similar only some times concurrency actually ran faster.
+
+* I also experimented with creating a bigger number of strings and for really big numbers
+  like 100,000,000 the concurrent method is more consistently faster
+
+

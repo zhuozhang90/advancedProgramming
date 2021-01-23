@@ -1,0 +1,64 @@
+##########################
+# CS622 HW1 Gorilla Game #
+# Zhuo Zhang             # 
+# zzhang90@bu.edu        #
+##########################
+
+## environment
+
+using openjdk-8 on Ubuntu 18.04 under Eclipse IDE
+
+package name: edu.bu.cs622.hw1
+
+source file directory: src/edu/bu/cs622/hw1
+
+## code
+
+classes implemented: 
+
+	Game: handles the environment and players
+		
+	Weather: handles wind, which affects banana speeds
+		has overloaded constructor Weather()
+
+	Character: parent class for all objects in game
+		has overloaded method move()
+
+	Gorilla: players
+		inherits from Character and overrides parent method die()
+		implements shooter interface and overloaded shoot() methods
+		
+	Banana: what gorillas use to hit targets
+		overrides parent mathod die()
+
+	Building: what gorillas stand on, uses only parent methods
+
+interface implemented:
+	shooter: contains method shoot() that can be implemented by Gorillas to shoot bananas
+		handles shooting angle and speed
+
+
+## diagram showing inheritence and implementation of interface
+
+  class           class           parent class             interface
++-----------+    +--------+     +-------------+          +-----------+
+|           |    |        |     |             |          |           |
+|  Weather  |    |  Game  |     |  Character  |          |  shooter  |
+|           |    |        |     |             |          |           |
++-----------+    +--------+     +--+---+----+-+          +-------+---+
+                                   ^   ^    ^                    ^
+                                   |   |    |                    |
+                                   |   |    |                    |
+                                  inherits from                  |
+                                   |   |    |               implements
+                                   |   |    |                    |
+                                   |   |    |                    |
+                +------------------+   |    +-----------------+  |
+                |                      |                      |  |
+    child class |         child class  |         child class  |  |
++---------------+--+  +----------------+----+   +-------------+--+---+
+|                  |  |                     |   |                    |
+|     Banana       |  |      Building       |   |      Gorilla       |
+|                  |  |                     |   |                    |
++------------------+  +---------------------+   +--------------------+
+

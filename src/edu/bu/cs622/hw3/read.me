@@ -1,0 +1,40 @@
+###################################
+# CS622 HW3 Memory as Collections #
+# Zhuo Zhang                      # 
+# zzhang90@bu.edu                 #
+###################################
+
+## environment
+
+* using openjdk-11 on Ubuntu 18.04 under Eclipse IDE.
+
+* package name: edu.bu.cs622.hw3.
+
+* source file directory: src/edu/bu/cs622/hw3.
+
+## implementation
+
+* collection used: Hashmap<Timestamp, String>.
+
+* added Sensor class to incorporate Memory into each sensor.
+
+* Memory class uses HashMap data structure to store timestamps and search keyword.
+
+* Sensor class uses composition and wrappers to the Memory to expose Memory methods
+	to the Sensor class.
+
+* Memory class: 
+	* HashMap<Timestamp, String> with Timestamp as the key and search keyword as value,
+		which makes it possible to store the same search keywords as different entries.
+	* to get the frequency of searches size() method is called each time, frequency is not 
+		directly stored.
+
+* Sensor class: 
+	* Sensor stores name of sensor and file path to keep track of the data.
+	* Memory as a private field to keep track of search history.
+
+## known issue:
+
+* in memory class, if two searches happen at the same time, they are not both saved as the
+	timestamps are used as keys. 
+
